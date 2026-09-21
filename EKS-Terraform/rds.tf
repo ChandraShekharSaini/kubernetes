@@ -10,7 +10,7 @@ resource "aws_db_instance" "rds" {
   multi_az               = true
   db_name                = "mydb"
   username               = "admin"
-  password               = "Cloud123"
+  password               = "qazqaz123"
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.allow_all.id]
   depends_on = [ aws_db_subnet_group.sub-grp ]
