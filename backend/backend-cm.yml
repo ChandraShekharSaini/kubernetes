@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  PORT: "5000"
+  FLASK_DEBUG: "false"
+#if mysql on containrt
+  #DB_HOST: "mysql-service"
+  #DB_USER: "root"
+  #DB_PASSWORD: "root"
+  #DB_NAME: "cloud"
+#if mysql on RDS
+  DB_HOST: "microservices-rds.cqtwgyysuxoi.us-east-1.rds.amazonaws.com"
+  DB_USER: "admin"
+  DB_PASSWORD: "Cloud123"
+  DB_NAME: "cloud"
+
+  MAIL_SERVER: "smtp.gmail.com"
+  MAIL_PORT: "587"
+  MAIL_USERNAME: "veeraopstechnologies@gmail.com" 
+  MAIL_PASSWORD: "myak lkvr bwdr wkfs"
+  MAIL_USE_TLS: "true"
+  MAIL_USE_SSL: "false"

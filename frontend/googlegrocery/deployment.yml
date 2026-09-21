@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: googlegrocery-deployment
+  labels:
+    app: googlegrocery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: googlegrocery
+  template:
+    metadata:
+      labels:
+        app: googlegrocery
+    spec:
+      containers:
+      - name: googlegrocery
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-googlegrocery:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: googlegrocery-service
+  labels:
+    app: googlegrocery
+spec:
+  type: ClusterIP
+  selector:
+    app: googlegrocery
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

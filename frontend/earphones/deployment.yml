@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: earphones-deployment
+  labels:
+    app: earphones
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: earphones
+  template:
+    metadata:
+      labels:
+        app: earphones
+    spec:
+      containers:
+      - name: earphones
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-earphones:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: earphones-service
+  labels:
+    app: earphones
+spec:
+  type: ClusterIP
+  selector:
+    app: earphones
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

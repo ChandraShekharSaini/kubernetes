@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: food-deployment
+  labels:
+    app: food
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: food
+  template:
+    metadata:
+      labels:
+        app: food
+    spec:
+      containers:
+      - name: food
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-food:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: food-service
+  labels:
+    app: food
+spec:
+  type: ClusterIP
+  selector:
+    app: food
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

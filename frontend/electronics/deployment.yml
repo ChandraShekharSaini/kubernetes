@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: electronics-deployment
+  labels:
+    app: electronics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: electronics
+  template:
+    metadata:
+      labels:
+        app: electronics
+    spec:
+      containers:
+      - name: electronics
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-electronics:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: electronics-service
+  labels:
+    app: electronics
+spec:
+  type: ClusterIP
+  selector:
+    app: electronics
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

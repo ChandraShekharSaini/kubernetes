@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toys-deployment
+  labels:
+    app: toys
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toys
+  template:
+    metadata:
+      labels:
+        app: toys
+    spec:
+      containers:
+      - name: toys
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-toys:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: toys-service
+  labels:
+    app: toys
+spec:
+  type: ClusterIP
+  selector:
+    app: toys
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

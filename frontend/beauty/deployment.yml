@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beauty-deployment
+  labels:
+    app: beauty
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beauty
+  template:
+    metadata:
+      labels:
+        app: beauty
+    spec:
+      containers:
+      - name: beauty
+        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-beauty:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: beauty-service
+  labels:
+    app: beauty
+spec:
+  type: ClusterIP
+  selector:
+    app: beauty
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
