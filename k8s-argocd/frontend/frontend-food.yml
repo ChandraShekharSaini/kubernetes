@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ChandraShekharSaini/kubernetes.git
     path: frontend/food
-    targetRevision: main
+    targetRevision: master
   destination:
     server: https://kubernetes.default.svc
     namespace: microservices
