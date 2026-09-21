@@ -18,7 +18,7 @@ data:
 
   MAIL_SERVER: "smtp.gmail.com"
   MAIL_PORT: "587"
-  MAIL_USERNAME: "veeraopstechnologies@gmail.com" 
-  MAIL_PASSWORD: "myak lkvr bwdr wkfs"
+  MAIL_USERNAME: "chandrashekharsaini322@gmail.com" 
+  MAIL_PASSWORD: "teyt akzg trqn bxuz"
   MAIL_USE_TLS: "true"
   MAIL_USE_SSL: "false"
