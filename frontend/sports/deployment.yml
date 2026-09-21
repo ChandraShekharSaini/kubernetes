@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: sports
-        image: 727158409638.dkr.ecr.us-east-1.amazonaws.com/shopping-site-sports:53190eccf9c9c9fadc090e086a231e24fdcc9165
+        image: 099878477830.dkr.ecr.us-east-1.amazonaws.com/shopping-site-sports:726fdd60eaf1992ca3f69a0a80ee8781b014f56d
         ports:
         - containerPort: 80
 ---
